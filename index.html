@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="MTracer-Viz : A web-based visualization tool for MTracer">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>MTracer-Viz</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/mtracer/MTracer-Viz">View on GitHub</a>
+
+          <h1 id="project_title">MTracer-Viz</h1>
+          <h2 id="project_tagline">A web-based visualization tool for MTracer</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/mtracer/MTracer-Viz/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/mtracer/MTracer-Viz/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <p></p>
+
+<h1 align="center">
+<a name="welcome-to-mtracer-viz-try-it" class="anchor" href="#welcome-to-mtracer-viz-try-it"><span class="octicon octicon-link"></span></a>Welcome to MTracer-Viz! (<a href="http://www.wsdream.net/mtracer-viz/">Try it</a>)</h1>
+
+<p align="center">E-mail: jwzhou@nudt.edu.cn</p>
+
+<hr><div>• <a href="#Overview"> Overview </a>
+</div>
+
+<div>• <a href="#publications"> publications </a>
+</div>
+
+<div>• <a href="#start"> Getting Start </a>
+</div>
+
+<div>• <a href="#Functions"> Functions </a>
+</div>
+
+<div>• <a href="#Contact"> Contact us </a>
+</div>
+
+<hr><p><a name="Overview"></a><br></p>
+
+<p></p><h2>
+<a name="overview" class="anchor" href="#overview"><span class="octicon octicon-link"></span></a>Overview</h2>
+
+<p>MTracer-Viz is a web-based visualization tool for <a href="http://mtracer.github.io/MTracer/">MTracer</a>, displaying the data collected by MTracer from different aspects. MTracer-Viz supports different queries, such as the operations executed in a certain node and the traces generated during last hour. Some kinds of deeper data analyses are also integrated, such as trace classification and performance problem diagnosis. We implemented MTracer-Viz both for windows and linux. A version of MTracer-Viz is also deployed on web (<a href="http://www.wsdream.net/mtracer-viz/">here</a>) for visualizing <a href="http://mtracer.github.io/TraceBench/">TraceBench</a>.</p>
+
+<p><a name="publications"></a><br></p>
+
+<p></p><h2>
+<a name="publications" class="anchor" href="#publications"><span class="octicon octicon-link"></span></a>publications</h2>
+
+<p>Refer to <a href="http://mtracer.github.io/MTracer/">MTracer</a> and <a href="http://mtracer.github.io/TraceBench/">TraceBench</a>.</p>
+
+<p><a name="start"></a><br></p>
+
+<p></p><h2>
+<a name="getting-start" class="anchor" href="#getting-start"><span class="octicon octicon-link"></span></a>Getting Start</h2>
+
+<p>To use MTracer-Viz, some software need be installed firstly. We suggest to employ the recommended version of each software, to void unexpected problems.</p>
+
+<table border="1" cellspacing="0" cellpadding="3">
+<tr>
+<th></th>
+<th>Software</th>
+<th>Recommended Version</th>
+</tr>
+<tr>
+<td>1</td>
+<td>JDK</td>
+<td><a href="http://www.oracle.com/technetwork/java/javase/downloads/java-archive-downloads-javase6-419409.html#jdk-6u10-oth-JPR">1.6.0_10-rc2(6u10)</a></td>
+</tr>
+<tr>
+<td>2</td>
+<td>MySQL</td>
+<td><a href="http://downloads.mysql.com/archives/community/">5.1.27</a></td>
+</tr>
+<tr>
+<td>3</td>
+<td>Graphviz</td>
+<td><a href="http://www.graphviz.org/pub/graphviz/stable/">2.26.3</a></td>
+</tr>
+<tr>
+<td>4</td>
+<td>Tomcat</td>
+<td><a href="http://archive.apache.org/dist/tomcat/tomcat-6/v6.0.35/bin/">6.0.35</a></td>
+</tr>
+</table><p>Following is the steps of deploying MTracer-Viz on Windows and Linux:</p>
+
+<h5>
+<a name="for-windows" class="anchor" href="#for-windows"><span class="octicon octicon-link"></span></a>For Windows</h5>
+
+<div>1. Install JDK and add "JAVA_HOME" to environment variables.</div>
+
+<div>2. Install MySQL and set the parameters: user="root", password="root", port="3306".</div>
+
+<div>3. Install Graphviz to execute the "dot" command.</div>
+
+<div>4. Install Tomcat and set "TOMCAT_HOME".</div>
+
+<div>5. Copy MTracer-Viz to a directory, assuming the path is "MTRACER_VIZ_HOME", where "MTRACER_VIZ_HOME" should not contain blank spaces.</div>
+
+<div>6. Copy "%MTRACER_VIZ_HOME%\webapps\WEB-INF\lib\flanagan.jar" to "%JAVA_HOME%\jre\lib\ext", for performance problem diagnosis.</div>
+
+<div>7. Configure Tomcat, i.e., set "<em></em>" at about line 144 of "%TOMCAT_HOEM%\conf\server.xml".</div>
+
+<div>8. Start MySQL and Tomcat, and input "http://localhost:8080/" in local browser. You will see MTracer-Viz if success.</div>
+
+<div>9. Click the link "Databases" on the top (or input "http://localhost:8080/database_list.jsp"). There already exists a .sql file from <a href="http://mtracer.github.io/TraceBench/">TraceBench</a>. Click the "enable" button to load this file. And then, you will see traces.. 
+<br><h5>
+<a name="for-linux" class="anchor" href="#for-linux"><span class="octicon octicon-link"></span></a>For Linux</h5>
+<div>1. Rename the "$MTRACER_VIZ_HOME$\webapps\database_manager.jsp.linux" to "$MTRACER_VIZ_HOME$\webapps\database_manager.jsp".</div>
+
+<div>2. Follow the step 1-9 as for windows.</div>
+
+<h5>
+<a name="note-that" class="anchor" href="#note-that"><span class="octicon octicon-link"></span></a>Note that:</h5>
+
+<div>1. If an UnsupportedClassVersionError occurs in local browser, you need to re-compile the .java files as following:</div>
+
+<div>                
+cd $MTRACER_VIZ_HOME$\webapps\WEB-INF\classes\edu\nudt\xtrace</div>
+
+<div>                
+javac -classpath $MTRACER_VIZ_HOME$\webapps\WEB-INF\lib\flanagan.jar *.java</div>
+
+<div>2. If the used MySQL version is different with we recommending, the corresponding connector "<a href="http://downloads.mysql.com/archives/c-j/">mysql-connector-java-x.x.x-bin.jar</a>" should be copied to "$MTRACER_VIZ_HOME$\webapps\WEB-INF\lib".</div>
+
+<div>3. Any blank spaces in the path $MTRACER_VIZ_HOME$ may result in failures in drawing trace trees by Graphviz.</div>
+
+<div>4. MySQL files (.sql files) are stored or saved in "$MTRACER_VIZ_HOME$\webapps\database"</div>
+
+<p><a name="Functions"></a><br></p>
+
+<p></p>
+<h2>
+<a name="functions" class="anchor" href="#functions"><span class="octicon octicon-link"></span></a>Functions</h2>
+
+<div>Following we introduce some main functions of MTracer-Viz.</div>
+
+<p></p>
+<h3>
+<a name="1-database-files" class="anchor" href="#1-database-files"><span class="octicon octicon-link"></span></a>1. Database files</h3>
+
+<p><img src="images/database.png"><br>**Location**:      Click the link "Databases" on the top of homepage, or input "http://localhost:8080/database_list.jsp".
+<br><b>Description: </b>Manage database files:
+<br>                          
+1) <b>save current database</b>: Dump data from MySQL to a .sql file.
+<br>                          
+2) <b>enable</b>: Load data from the .sql file to MySQL.
+<br>                          
+3) <b>rename</b>: Rename the name of the .sql file.
+<br>                          
+4) <b>delete</b>: Delete the .sql file.
+
+</p>
+<p></p>
+<h3>
+<a name="2-traces" class="anchor" href="#2-traces"><span class="octicon octicon-link"></span></a>2. Traces</h3>
+
+<p><img src="images/trace.png"><br><b>Location:      </b>Homepage, or input "http://localhost:8080/index.jsp".
+<br><b>Description: </b>Display, manage and analyse traces of MySQL:
+<br>                          
+1) <b>trace information</b>: List all trace in MySQL with trace name, contained events/edges, handling time, first/last event arrival time on MTracer server, and trace ID. The link 1.1 selects traces with the same name, and link 1.2/1.3 shows the details of all contained events/edges. (event/edge: refer to <a href="http://mtracer.github.io/MTracer/">MTracer</a>)
+<br>                          
+2) <b>CTG/DRG</b>: Show the trace tree of the corresponding trace in the form of graph/text.
+<br>                          
+3) <b>search zone</b>: Query traces with various conditions.
+<br>                          
+4) <b>classify</b>: Classify traces <b>with the same title</b>, according to the topologies of trace tree. So, the process is : <em>select</em> (traces with the same title via search zone) -&gt; <em>classify</em>.
+<br>                          
+5) <b>diagnose</b>: Diagnose performance problems, based on PCA, among a trace set with the same title and with the same topology. So, the process is: <em>select</em> (traces with the same title) -&gt; <em>classify</em> -&gt; <em>diagnose</em>.
+<br>                          
+6) <b>delete</b>: Delete all the selected traces.
+
+</p>
+<p></p>
+<h3>
+<a name="3-operations" class="anchor" href="#3-operations"><span class="octicon octicon-link"></span></a>3. Operations</h3>
+
+<p><img src="images/operation.png"><br><b>Location:      </b>Click the link "Operations" on the top of homepage, or input "http://localhost:8080/op_index.jsp".
+<br><b>Description: </b>Operations can be understood as functions or the event names.
+<br>                          
+1) <b>operation information</b>: List all the kinds of operations, with the name, amount of appearing in MySQL, max/min/average executing time. Link 1-1 lists the details of all the operations, and link 1-2/1-3 lists the details of all the operations with the max/min executing time.
+<br>                          
+2) <b>Operation Detail</b>: Show the details of all selected operations and the details of the belonged trace.
+<br>                          
+3) <b>DDG</b>: Show the distribution of executing time of an operation kind.
+<br>                          
+4) <b>HDG</b>: Show the distribution of belonged host of an operation kind.
+<br>                          
+5) <b>DTG</b>: Show the trend of executing time of an operation kind.
+
+<a name="contact"></a><br></p>
+<p></p>
+<h2>
+<a name="contact-us" class="anchor" href="#contact-us"><span class="octicon octicon-link"></span></a>Contact us</h2>
+
+<div>• Jingwen Zhou(<a href="mailto:jwzhou@nudt.edu.cn">jwzhou@nudt.edu.cn</a>): PhD Student, National University of Defense Technology, Changsha, China</div>
+
+<div>• Zhenbang chen(<a href="mailto:zbchen@nudt.edu.cn">zbchen@nudt.edu.cn</a>): Lecturer, National University of Defense Technology, Changsha, China</div>
+
+<p></p>
+</div>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">MTracer-Viz maintained by <a href="https://github.com/mtracer">mtracer</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
