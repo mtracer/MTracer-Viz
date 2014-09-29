@@ -113,11 +113,11 @@
 
 <div>4. Install Tomcat and set "TOMCAT_HOME".</div>
 
-<div>5. Copy MTracer-Viz to a directory, assuming the path is "MTRACER_VIZ_HOME", where "MTRACER_VIZ_HOME" should not contain blank spaces.</div>
+<div>5. Copy all the files of MTracer-Viz to a directory, assuming the path is "MTRACER_VIZ_HOME", where "MTRACER_VIZ_HOME" should not contain blank spaces.</div>
 
-<div>6. Copy "%MTRACER_VIZ_HOME%\webapps\WEB-INF\lib\flanagan.jar" to "%JAVA_HOME%\jre\lib\ext", for performance problem diagnosis.</div>
+<div>6. Copy "%MTRACER_VIZ_HOME%\WEB-INF\lib\flanagan.jar" to "%JAVA_HOME%\jre\lib\ext", for performance problem diagnosis.</div>
 
-<div>7. Configure Tomcat, i.e., set "<em></em>" at about line 144 of "%TOMCAT_HOEM%\conf\server.xml".</div>
+<div>7. Configure Tomcat, i.e., set "docBase=%MTRACER_VIZ_HOME%" at about line 144 of "%TOMCAT_HOEM%\conf\server.xml".</div>
 
 <div>8. Start MySQL and Tomcat, and input "http://localhost:8080/" in local browser. You will see MTracer-Viz if success.</div>
 
